@@ -11,9 +11,10 @@ using System;
 namespace Clockwork.API.Migrations
 {
     [DbContext(typeof(ClockworkContext))]
-    partial class ClockworkContextModelSnapshot : ModelSnapshot
+    [Migration("20190308143028_WorldTimeController")]
+    partial class WorldTimeController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,11 +43,9 @@ namespace Clockwork.API.Migrations
 
                     b.Property<string>("ClientIp");
 
-                    b.Property<string>("ConvertedDateTime");
-
                     b.Property<string>("RequestedTimeZone");
 
-                    b.Property<DateTime>("UTCTime");
+                    b.Property<DateTimeOffset>("UTCTime");
 
                     b.HasKey("WorldTimeQueryId");
 

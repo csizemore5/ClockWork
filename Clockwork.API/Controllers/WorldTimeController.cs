@@ -10,9 +10,16 @@ namespace Clockwork.API.Controllers
     [Route("api/[controller]")]
     public class WorldTimeController : Controller
     {
-        // GET api/worldtime/selectedZone
+        [HttpGet("all")]
+        public IActionResult GetAll()
+        {
+            var context = new ClockworkContext();
+            return Ok(context.WorldTimeQueries);
+        }
+
+        // GET api/worldtime/requestedTimeZone
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetWorldTime(int id)
         {
             var utcTime = DateTime.UtcNow;
             var serverTime = DateTime.Now;

@@ -1,10 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-
+import { Component, OnInit } from '@angular/core';
 import { WorldTimeQuery } from '../world-time-query';
 import { TimeZoneId } from '../timezone-id';
 import { TimezoneService } from '../timezone.service';
-import { Config } from 'protractor';
 
 @Component({
   selector: 'app-timezone-selector',
@@ -13,11 +10,11 @@ import { Config } from 'protractor';
 })
 export class TimezoneSelectorComponent implements OnInit {
   constructor(private timeZoneService: TimezoneService) { }
-  @Input() timezoneid: TimeZoneId;
 
   timeZoneIds: Array<TimeZoneId> = [];
-
-  selectedTimeZoneId = this.timeZoneIds[0];
+  selectedTimeZoneId: string;
+  selectedTime: string;
+  worldTime: WorldTimeQuery;
 
   getTimeZones() {
     this.timeZoneService.getAllTimezones()
@@ -26,12 +23,11 @@ export class TimezoneSelectorComponent implements OnInit {
     });
   }
 
-  timeZoneChanged(timeZoneIdVal: number) {
-    this.selectedTimeZoneId = this.timeZoneIds[timeZoneIdVal];
-  }
-
-  displayTime(id: string) {
-
+  displayTime() {
+    this.timeZoneService.getSpecificTimeZone(this.selectedTimeZoneId)
+    .subscribe((data: WorldTimeQuery) => {
+      this.worldTime = data;
+    });
   }
 
   ngOnInit() {

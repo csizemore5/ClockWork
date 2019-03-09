@@ -1,11 +1,20 @@
 <div>
   Select a timezone why don'cha?
 </div>
-<select class="timeZoneSelect" id="timeZoneSelect" (change)="timeZoneChanged($event.target.value)">
+<select
+class="timeZoneSelect"
+ id="timeZoneSelect"
+  [(ngModel)]="selectedTimeZoneId">
   <ng-container *ngFor="let tz of timeZoneIds">
     <option value={{tz}}>{{tz}}</option>
   </ng-container>
 </select>
-<button class="button"
-(click)="displayTime()"
- id="getSelectedDateTime"> Get the DateTime for {{timezoneid}}</button>
+<div *ngIf="selectedTimeZoneId">
+  <button class="button"
+  (click)="displayTime()"
+  id="getSelectedDateTime"> Get the DateTime for {{selectedTimeZoneId}}</button>
+</div>
+<div *ngIf="worldTime" class="worldTime">
+    {{worldTime.convertedDateTime}} in {{selectedTimeZoneId}}! Wow!!
+</div>
+

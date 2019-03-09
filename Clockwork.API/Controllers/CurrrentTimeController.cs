@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Clockwork.API.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Clockwork.API.Controllers
 {
@@ -9,7 +12,7 @@ namespace Clockwork.API.Controllers
     {
         // GET api/currenttime
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetCurrentTime()
         {
             var utcTime = DateTime.UtcNow;
             var serverTime = DateTime.Now;
@@ -37,5 +40,15 @@ namespace Clockwork.API.Controllers
 
             return Ok(returnVal);
         }
+
+        // GET api/currentTime/all
+        [HttpGet("all")]
+        public IActionResult GetAll()
+        {
+            var context = new ClockworkContext();
+            return Ok(context.CurrentTimeQueries);
+            
+        }
+
     }
 }

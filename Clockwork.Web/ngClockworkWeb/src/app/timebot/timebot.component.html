@@ -1,0 +1,6 @@
+<button class="button"
+(click)="displayCurrentTime()"
+id="getCurrentTime">Click here to understand time.</button>
+<div *ngIf="currentTime">
+  {{currentTime.utcTime | date:'shortTime'}}
+</div>

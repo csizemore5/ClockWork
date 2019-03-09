@@ -2,17 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
-using System.Linq;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Clockwork.API.Controllers
 {
     [Route("api/[controller]")]
     public class TimeZoneIdsController : Controller
     {
-        // GET api/worldtime/TimeZoneIds
-        [HttpGet("{id}")]
+        // GET api/timezoneids
+        [HttpGet]
         public IActionResult Get()
         {
             List<string> result = new List<string>();
@@ -21,6 +18,7 @@ namespace Clockwork.API.Controllers
             {
                 result.Add(tzi.Id);
             }
+            Console.WriteLine("TimeZone Ids fetched" + DateTime.UtcNow);
             return Ok(result);
         }
     }

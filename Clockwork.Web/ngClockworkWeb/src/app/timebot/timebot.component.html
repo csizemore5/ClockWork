@@ -7,8 +7,10 @@
   </div>
 
   <div *ngIf="currentTime" class="currentTime">
-    {{ currentTime.time | date:'shortTime' }} Current time
+    <p> {{ currentTime.time | date:'shortTime' }} Current time </p>
   </div>
+
+
 
   <section id="sectiontable">
     <div *ngIf="allCurrentTimeQueries">

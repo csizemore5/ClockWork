@@ -74,3 +74,9 @@ td{
   background: linear-gradient(to right, #25c481, #25b7c4);
   font-family: 'Roboto', sans-serif;
 }
+p {
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.75em;
+}

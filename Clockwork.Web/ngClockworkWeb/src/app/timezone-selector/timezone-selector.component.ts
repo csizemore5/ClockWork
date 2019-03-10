@@ -16,6 +16,7 @@ export class TimezoneSelectorComponent implements OnInit {
   selectedTime: string;
   worldTime: WorldTimeQuery;
   allWorldTimeQueries: WorldTimeQuery[];
+  error: string;
 
   ngOnInit() {
     this.getTimeZones();
@@ -24,23 +25,21 @@ export class TimezoneSelectorComponent implements OnInit {
 
   getTimeZones() {
     this.timeZoneService.getAllTimezones()
-    .subscribe((data: TimeZoneId[]) => {
-      this.timeZoneIds = data;
-    });
+    .subscribe((data: TimeZoneId[]) => { this.timeZoneIds = data; },
+    error => this.error = error);
   }
 
   displayTime() {
     this.timeZoneService.getSpecificTimeZone(this.selectedTimeZoneId)
-    .subscribe((data: WorldTimeQuery) => {
-      this.worldTime = data;
-    });
+    .subscribe(
+      (data: WorldTimeQuery) => { this.worldTime = data; },
+      error => this.error = error);
     this.getAllWorldTimeQueries();
   }
 
   getAllWorldTimeQueries() {
     this.timeZoneService.getAllWorldTimeQueries()
-    .subscribe((data: WorldTimeQuery[]) => {
-    this.allWorldTimeQueries = data;
-    });
+    .subscribe((data: WorldTimeQuery[]) => { this.allWorldTimeQueries = data; },
+    error => this.error = error);
   }
 }

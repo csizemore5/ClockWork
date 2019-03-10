@@ -1,7 +1,11 @@
-<button class="button"
-(click)="displayCurrentTime()"
-id="getCurrentTime">Click here to understand time.</button>
-<div *ngIf="currentTime">
+<div class="button">
+  <button
+  (click)="displayCurrentTime()"
+  id="getCurrentTime">Click here to understand time.
+  </button>
+</div>
+
+<div *ngIf="currentTime" class="currentTime">
   {{ currentTime.time | date:'shortTime' }} Current time
 </div>
 <div *ngIf="allCurrentTimeQueries">

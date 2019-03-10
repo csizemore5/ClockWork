@@ -26,4 +26,12 @@ export class TimezoneService {
       return this.http.get<CurrentTimeQuery>(this.API_URL + 'currenttime');
     }
 
+    getAllCurrentTimeQueries(): Observable<CurrentTimeQuery[]> {
+      return this.http.get<CurrentTimeQuery[]>(this.API_URL + 'currenttime/all');
+    }
+
+    getAllWorldTimeQueries(): Observable<WorldTimeQuery[]> {
+      return this.http.get<WorldTimeQuery[]>(this.API_URL + 'worldtime/all');
+    }
+
 }

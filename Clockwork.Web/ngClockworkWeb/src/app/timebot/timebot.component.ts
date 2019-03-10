@@ -13,14 +13,23 @@ export class TimebotComponent implements OnInit {
   constructor(private timeZoneService: TimezoneService) { }
 
   currentTime: CurrentTimeQuery;
+  allCurrentTimeQueries: CurrentTimeQuery[];
 
   ngOnInit() {
+    this.displayAllCurrentTimeQueries();
   }
 
   displayCurrentTime() {
     this.timeZoneService.getCurrentTime()
     .subscribe((data: CurrentTimeQuery) => {
     this.currentTime = data;
+    });
+  }
+
+  displayAllCurrentTimeQueries() {
+    this.timeZoneService.getAllCurrentTimeQueries()
+    .subscribe((data: CurrentTimeQuery[]) => {
+      this.allCurrentTimeQueries = data;
     });
   }
 

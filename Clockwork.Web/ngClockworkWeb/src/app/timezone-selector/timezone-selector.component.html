@@ -17,4 +17,13 @@ class="timeZoneSelect"
 <div *ngIf="worldTime" class="worldTime">
     {{worldTime.convertedDateTime}} in {{selectedTimeZoneId}}! Wow!!
 </div>
+<div *ngIf="allWorldTimeQueries">
+  <table>
+    <tr *ngFor="let ctq of allWorldTimeQueries">
+       <td>Request ID: {{ ctq.worldTimeQueryId }}</td>
+       <td>{{ctq.utcTime | date:'shortTime'}}</td>
+     </tr>
+ </table>
+
+</div>
 

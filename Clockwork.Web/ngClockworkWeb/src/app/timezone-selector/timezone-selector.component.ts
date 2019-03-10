@@ -25,8 +25,9 @@ export class TimezoneSelectorComponent implements OnInit {
 
   getTimeZones() {
     this.timeZoneService.getAllTimezones()
-    .subscribe((data: TimeZoneId[]) => { this.timeZoneIds = data; },
-    error => this.error = error);
+    .subscribe(
+      (data: TimeZoneId[]) => { this.timeZoneIds = data; },
+      error => this.error = error);
   }
 
   displayTime() {

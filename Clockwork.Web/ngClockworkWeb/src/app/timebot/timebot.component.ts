@@ -22,13 +22,15 @@ export class TimebotComponent implements OnInit {
 
   displayCurrentTime() {
     this.timeZoneService.getCurrentTime()
-    .subscribe((data: CurrentTimeQuery) => { this.currentTime = data; },
-    error => this.error = error);
+    .subscribe(
+      (data: CurrentTimeQuery) => { this.currentTime = data; },
+      error => this.error = error);
+    this.displayAllCurrentTimeQueries();
   }
 
   displayAllCurrentTimeQueries() {
     this.timeZoneService.getAllCurrentTimeQueries()
-    .subscribe((data: CurrentTimeQuery[]) => { this.allCurrentTimeQueries = data;},
+    .subscribe((data: CurrentTimeQuery[]) => { this.allCurrentTimeQueries = data; },
     error => this.error = error);
   }
 

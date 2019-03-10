@@ -1,6 +1,7 @@
 import { TimeQuery } from './timequery';
 
 export class CurrentTimeQuery extends TimeQuery {
-  id: number;
+  currentTimeQueryId: number;
   utcTime: string;
+  time: string;
 }

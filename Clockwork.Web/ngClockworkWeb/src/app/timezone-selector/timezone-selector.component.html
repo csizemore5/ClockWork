@@ -6,24 +6,27 @@ class="timeZoneSelect"
  id="timeZoneSelect"
   [(ngModel)]="selectedTimeZoneId">
   <ng-container *ngFor="let tz of timeZoneIds">
-    <option value={{tz}}>{{tz}}</option>
+    <option [ngValue]="timeZoneIds.indexOf(tz)">{{tz}}</option>
   </ng-container>
 </select>
 <div *ngIf="selectedTimeZoneId">
   <button class="button"
   (click)="displayTime()"
-  id="getSelectedDateTime"> Get the DateTime for {{selectedTimeZoneId}}</button>
+  id="getSelectedDateTime"> Get the DateTime for {{ timeZoneIds[selectedTimeZoneId] }}</button>
 </div>
 <div *ngIf="worldTime" class="worldTime">
-    {{worldTime.convertedDateTime}} in {{selectedTimeZoneId}}! Wow!!
+    Its {{ worldTime.convertedDateTime }} in {{ worldTime.requestedTimeZone }}! Wow!!
 </div>
 <div *ngIf="allWorldTimeQueries">
   <table>
     <tr *ngFor="let ctq of allWorldTimeQueries">
        <td>Request ID: {{ ctq.worldTimeQueryId }}</td>
-       <td>{{ctq.utcTime | date:'shortTime'}}</td>
+       <td>{{ ctq.utcTime | date:'shortTime' }}</td>
      </tr>
  </table>
 
+ <div *ngIf="error">
+   <p class="error">well fuck</p>
+ </div>
 </div>
 

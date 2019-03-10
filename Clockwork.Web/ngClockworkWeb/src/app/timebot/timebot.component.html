@@ -2,13 +2,14 @@
 (click)="displayCurrentTime()"
 id="getCurrentTime">Click here to understand time.</button>
 <div *ngIf="currentTime">
-  {{currentTime.utcTime | date:'shortTime'}}
+  {{ currentTime.time | date:'shortTime' }} Current time
 </div>
 <div *ngIf="allCurrentTimeQueries">
   <table>
     <tr *ngFor="let ctq of allCurrentTimeQueries">
-      <td>Request ID: {{ctq.id}}</td>
-      <td>{{ctq.utcTime | date:'shortTime'}}</td>
+      <td>Request ID: {{ ctq.currentTimeQueryId }}</td>
+      <td>{{ ctq.utcTime | date:'shortTime' }} UTC Time of Request</td>
+      <td>{{ ctq.time | date:'shortTime' }} Local Time of Request</td>
     </tr>
   </table>
 </div>

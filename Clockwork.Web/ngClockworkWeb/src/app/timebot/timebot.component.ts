@@ -24,8 +24,8 @@ export class TimebotComponent implements OnInit {
     this.timeZoneService.getCurrentTime()
     .subscribe(
       (data: CurrentTimeQuery) => { this.currentTime = data; },
-      error => this.error = error);
-    this.displayAllCurrentTimeQueries();
+      error => this.error = error,
+      () => this.displayAllCurrentTimeQueries());
   }
 
   displayAllCurrentTimeQueries() {

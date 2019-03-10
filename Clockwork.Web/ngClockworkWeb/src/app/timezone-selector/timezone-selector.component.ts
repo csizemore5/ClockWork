@@ -34,8 +34,9 @@ export class TimezoneSelectorComponent implements OnInit {
     this.timeZoneService.getSpecificTimeZone(this.selectedTimeZoneId)
     .subscribe(
       (data: WorldTimeQuery) => { this.worldTime = data; },
-      error => this.error = error);
-    this.getAllWorldTimeQueries();
+      error => this.error = error,
+      () => { this.getAllWorldTimeQueries(); }
+      );
   }
 
   getAllWorldTimeQueries() {

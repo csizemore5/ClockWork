@@ -6,19 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TimezoneSelectorComponent } from './timezone-selector/timezone-selector.component';
 import { TimebotComponent } from './timebot/timebot.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimezoneSelectorComponent,
-    TimebotComponent
+    TimebotComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

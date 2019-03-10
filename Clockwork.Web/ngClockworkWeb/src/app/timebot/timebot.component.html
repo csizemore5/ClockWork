@@ -1,19 +1,30 @@
-<div class="button">
-  <button
-  (click)="displayCurrentTime()"
-  id="getCurrentTime">Click here to understand time.
-  </button>
-</div>
+<div id="timebot">
+  <div class="button">
+    <button
+    (click)="displayCurrentTime()"
+    id="timebutton">Click here to understand time.
+    </button>
+  </div>
 
-<div *ngIf="currentTime" class="currentTime">
-  {{ currentTime.time | date:'shortTime' }} Current time
-</div>
-<div *ngIf="allCurrentTimeQueries">
-  <table>
-    <tr *ngFor="let ctq of allCurrentTimeQueries">
-      <td>Request ID: {{ ctq.currentTimeQueryId }}</td>
-      <td>{{ ctq.utcTime | date:'shortTime' }} UTC Time of Request</td>
-      <td>{{ ctq.time | date:'shortTime' }} Local Time of Request</td>
-    </tr>
-  </table>
+  <div *ngIf="currentTime" class="currentTime">
+    {{ currentTime.time | date:'shortTime' }} Current time
+  </div>
+
+  <section id="sectiontable">
+    <div *ngIf="allCurrentTimeQueries">
+      <table id="ctqtable">
+        <tr>
+          <td>ID</td>
+          <td>Time of Request (in UTC)</td>
+          <td>Time of Request (server time)</td>
+        </tr>
+        <tr *ngFor="let ctq of allCurrentTimeQueries">
+          <td>{{ ctq.currentTimeQueryId }}</td>
+          <td>{{ ctq.utcTime | date:'shortTime' }}</td>
+          <td>{{ ctq.time | date:'shortTime' }}</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
 </div>

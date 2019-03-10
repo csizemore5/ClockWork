@@ -1,4 +1,8 @@
-#parallax1 {
+#parallax {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12em 0 10em 0;
+  text-align: center;
+
   background-image: url("./images/parallax.jpg");
 
   /* set the height */
@@ -6,33 +10,12 @@
 
   /* create the effect */
   background-attachment: fixed;
-  background-position: center;
+  background-position-x: right;
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.requestBox {
-  border: 10px;
-  padding: 25px;
-  margin: 25px;
-  display: block;
-}
-
-#app {
-  background-color: darkblue !important;
-}
-
-#banner {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 12em 0 10em 0;
-  background-image: url('./images/banner.jpg');
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  text-align: center;
-}
-
-#banner h1 {
+#parallax h1 {
   font-size: 4em;
   font-weight: 1;
   color: #fff;
@@ -40,59 +23,14 @@
   margin: 0 0 0.5em 0;
   padding: 0;
 }
-
-#banner p {
+#parallax p {
   font-size: 1em;
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: 1.75em;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-
-  #banner {
-    background-attachment: scroll;
-  }
-
-}
-
-@media screen and (max-width: 1280px) {
-
-  #banner {
-    padding: 10em 2em 8em 2em;
-  }
-
-}
-
-@media screen and (max-width: 980px) {
-
-  #banner {
-    background-attachment: scroll;
-  }
-
-}
-
-@media screen and (max-width: 736px) {
-
-  #banner {
-    padding: 8em 1.5em 6em 1.5em;
-  }
-
-    #banner h1 {
-      font-size: 2.5em;
-    }
-
-    #banner p {
-      font-size: .9em;
-    }
-
-}
-
-@media screen and (max-width: 480px) {
-
-  #banner {
-    padding: 6em 1.5em 4em 1.5em;
-  }
-
+#app {
+  background-color: darkblue !important;
 }
 
 #section {

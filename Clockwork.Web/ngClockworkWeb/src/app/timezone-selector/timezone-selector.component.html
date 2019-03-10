@@ -1,6 +1,5 @@
-<div>
-  Select a timezone why don'cha?
-</div>
+<div id="timezoneselector">
+  <p>Select a timezone why don'cha?</p>
 <select
 class="timeZoneSelect"
  id="timeZoneSelect"
@@ -14,13 +13,19 @@ class="timeZoneSelect"
   (click)="displayTime()"
   id="getSelectedDateTime"> Get the DateTime for {{ timeZoneIds[selectedTimeZoneId] }}</button>
 </div>
-<div *ngIf="worldTime" class="worldTime">
+<p *ngIf="worldTime" class="worldTime">
     Its {{ worldTime.convertedDateTime }} in {{ worldTime.requestedTimeZone }}! Wow!!
-</div>
+</p>
 <div *ngIf="allWorldTimeQueries">
-  <table>
+  <table id="sectiontable">
+    <tr>
+      <td>ID</td>
+      <td>Requested 'zone</td>
+      <td>Time in `zone</td>
+    </tr>
     <tr *ngFor="let ctq of allWorldTimeQueries">
        <td>Request ID: {{ ctq.worldTimeQueryId }}</td>
+       <td>{{ ctq.requestedTimeZone }}</td>
        <td>{{ ctq.utcTime | date:'shortTime' }}</td>
      </tr>
  </table>
@@ -29,4 +34,4 @@ class="timeZoneSelect"
    <p class="error">Something went horribly wrong!</p>
  </div>
 </div>
-
+</div>

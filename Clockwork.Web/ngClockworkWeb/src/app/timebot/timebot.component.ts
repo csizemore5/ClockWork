@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { MatSidenavContainer, MatSidenavContent } from '@angular/material';
 
 import { CurrentTimeQuery } from '../current-time-query';
 import { TimezoneService } from '../timezone.service';
@@ -7,6 +8,12 @@ import { TimezoneService } from '../timezone.service';
   selector: 'app-timebot',
   templateUrl: './timebot.component.html',
   styleUrls: ['./timebot.component.css']
+})
+@NgModule({
+  imports: [
+    MatSidenavContainer,
+    MatSidenavContent
+  ]
 })
 export class TimebotComponent implements OnInit {
 

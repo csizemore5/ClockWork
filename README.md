@@ -11,7 +11,10 @@ In order to run the angular frontend of this demonstration, you must first ensur
 And the .NET API retuires .NET Core 2.0 [runtime library and SDK](https://dotnet.microsoft.com/download/dotnet-core/2.0)
 
 Once everything has been installed, navigate to the Clockwork.API directory and ensure that you have the latest migrations in the provided clockwork.db file. 
-You can do this by entering **dotnet ef database update**. Once that is complete, run the API with **dotnet run**, and navigate to the ngClockworkWeb and run
+You can do this by entering **dotnet ef database update**. Once that is complete, run the API with **dotnet run**, and take note of the 
+endpoint port. If this number differs from **47737**, you will need to update the environments.ts file located at **ngClockworkWeb\environments\environments.ts** to
+the correct port. Navigate to the ngClockworkWeb and run
+**npm install** this will install the prerequisite information to run the application. Then, run 
 **ng serve --open**. this will run the web application locally, as well as open a browser window to display the data.
 
 ## API Documentation

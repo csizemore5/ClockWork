@@ -26,7 +26,7 @@ class="timeZoneSelect"
     <tr *ngFor="let ctq of allWorldTimeQueries">
        <td>Request ID: {{ ctq.worldTimeQueryId }}</td>
        <td>{{ ctq.requestedTimeZone }}</td>
-       <td>{{ ctq.utcTime | date:'shortTime' }}</td>
+       <td>{{ ctq.convertedDateTime  }}</td>
      </tr>
  </table>
 

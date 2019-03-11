@@ -18,7 +18,8 @@ You can do this by entering **dotnet ef database update**. Once that is complete
 
 The Clockwork.API has several endpoints to be mindful of.
 
-### api/currenttime: This GET request will return the current DateTime of the location where the server is being run at.
+### api/currenttime:
+ This GET request will return the current DateTime of the location where the server is being run at.
 
 ### api/currenttime/all:
  This GET request will return all database entries in the currenttime table of clockwork.db.
